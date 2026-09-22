@@ -1,0 +1,69 @@
+owner: nirium-protocol
+repo: status
+
+sites:
+  # --- Frontend (nirium.xyz) ---
+  - name: nirium.xyz
+    url: https://nirium.xyz/
+  - name: API Keys Console
+    url: https://nirium.xyz/keys
+
+  # --- Mainnet (Box B — nirium-agent-mainnet.fly.dev, receive-only, no signing key in the process) ---
+  - name: "[Mainnet] Agent"
+    url: https://nirium-agent-mainnet.fly.dev/health
+  - name: "[Mainnet] Audit Trail"
+    url: https://nirium-agent-mainnet.fly.dev/api/audit/info
+  - name: "[Mainnet] Reporting"
+    url: https://nirium-agent-mainnet.fly.dev/api/reporting/info
+  - name: "[Mainnet] Treasury (invite-only)"
+    url: https://nirium-agent-mainnet.fly.dev/api/treasury/info
+  - name: "[Mainnet] Payouts (invite-only)"
+    url: https://nirium-agent-mainnet.fly.dev/api/payroll/info
+  - name: "[Mainnet] Market ($0.05, x402/MPP)"
+    url: https://nirium-agent-mainnet.fly.dev/api/v1/premium/market
+    expectedStatusCodes:
+      - 200
+      - 402
+  - name: "[Mainnet] MPP"
+    url: https://nirium-agent-mainnet.fly.dev/api/v1/mpp/info
+
+  # --- Testnet (Box A — nirium-agent.fly.dev, full feature set) ---
+  - name: "[Testnet] Agent"
+    url: https://nirium-agent.fly.dev/health
+  - name: "[Testnet] Audit Trail"
+    url: https://nirium-agent.fly.dev/api/audit/info
+  - name: "[Testnet] Reporting"
+    url: https://nirium-agent.fly.dev/api/reporting/info
+  - name: "[Testnet] Treasury"
+    url: https://nirium-agent.fly.dev/api/treasury/info
+  - name: "[Testnet] Payouts"
+    url: https://nirium-agent.fly.dev/api/payroll/info
+  - name: "[Testnet] Escrow (Trustless Work)"
+    url: https://nirium-agent.fly.dev/api/payroll/escrow/info
+  - name: "[Testnet] Market ($0.05, x402/MPP)"
+    url: https://nirium-agent.fly.dev/api/v1/premium/market
+    expectedStatusCodes:
+      - 200
+      - 402
+  - name: "[Testnet] MPP"
+    url: https://nirium-agent.fly.dev/api/v1/mpp/info
+
+status-website:
+  baseUrl: /status
+  logoUrl: https://nirium.xyz/favicon.ico
+  name: Nirium Status
+  introTitle: "**Nirium** — real-time status of the public API, split by network."
+  introMessage: >-
+    Checks run every 5 minutes directly against the live endpoints of
+    nirium-agent.fly.dev (testnet) and nirium-agent-mainnet.fly.dev (mainnet).
+    A $0.05 paid endpoint returning 402 Payment Required counts as healthy —
+    that is its correct response when no valid payment was sent. Items marked
+    invite-only are access-gated by design (see nirium.xyz/compliance), not
+    a testnet-vs-mainnet feature gap.
+  navbar:
+    - title: Status
+      href: /
+    - title: Nirium
+      href: https://nirium.xyz
+    - title: GitHub
+      href: https://github.com/nirium-protocol/status
