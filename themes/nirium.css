@@ -1,0 +1,40 @@
+/*
+ * Nirium theme override for the Upptime status page.
+ * Values match apps/web/globals.css and tailwind.config.ts in
+ * nirium-core-private exactly — not invented for this page.
+ */
+:root {
+  --body-background-color: #050505;
+  --body-text-color: #ffffff;
+  --card-background-color: #0A0A0A;
+  --card-border-color: rgba(255, 255, 255, 0.1);
+  --nav-background-color: #050505;
+  --nav-border-bottom-color: rgba(255, 255, 255, 0.1);
+  --nav-current-border-bottom-color: #2DEBE8;
+  --code-color: #2DEBE8;
+  --code-background-color: #0A0A0A;
+  --down-border-left-color: #ef4444;
+  --down-background-color: rgba(239, 68, 68, 0.08);
+  --down-color-color: #ef4444;
+  --degraded-border-left-color: #FFC800;
+  --degraded-color-color: #FFC800;
+  --up-border-left-color: #2DEBE8;
+  --up-color-color: #2DEBE8;
+  --tag-color: #050505;
+  --tag-up-background-color: #2DEBE8;
+  --tag-down-background-color: #ef4444;
+  --tag-degraded-background-color: #FFC800;
+  --change-background-color: #FFC800;
+  --error-button-border-color: #7000ff;
+  --error-button-background-color: #7000ff;
+  --error-button-color: #ffffff;
+  --submit-button-border-color: #2DEBE8;
+  --submit-button-background-color: #2DEBE8;
+  --submit-button-color: #050505;
+  --graph-opacity: 0.9;
+  --graph-filter: none;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}

@@ -50,7 +50,10 @@ sites:
 
 status-website:
   baseUrl: /status
-  logoUrl: https://nirium.xyz/favicon.ico
+  themeUrl: https://cdn.jsdelivr.net/gh/nirium-protocol/status@master/themes/nirium.css
+  logoUrl: https://nirium.xyz/branding-nirium/svg/lockup-dark.svg
+  favicon: https://nirium.xyz/branding-nirium/png/favicon-32.png
+  faviconSvg: https://nirium.xyz/branding-nirium/svg/favicon.svg
   name: Nirium Status
   introTitle: "**Nirium** — real-time status of the public API, split by network."
   introMessage: >-
@@ -67,3 +70,22 @@ status-website:
       href: https://nirium.xyz
     - title: GitHub
       href: https://github.com/nirium-protocol/status
+  metaTags:
+    - name: theme-color
+      content: "#050505"
+    - name: twitter:card
+      content: summary_large_image
+    - name: twitter:image
+      content: https://nirium.xyz/branding-nirium/png/social-banner-1200x630.png
+  # Upptime's metaTags only emits name="" (checked in upptime/status-page's
+  # Nav/_layout.svelte: `<meta name={link.name} content={link.content} />`),
+  # so Open Graph tags — which crawlers expect as property="og:..." — have to
+  # go here instead of metaTags, or Facebook/LinkedIn/Slack unfurl blank.
+  customHeadHtml: |
+    <meta property="og:title" content="Nirium Status" />
+    <meta property="og:description" content="Real-time status of the Nirium public API, split by mainnet and testnet." />
+    <meta property="og:image" content="https://nirium.xyz/branding-nirium/png/social-banner-1200x630.png" />
+    <meta property="og:url" content="https://nirium-protocol.github.io/status/" />
+    <meta property="og:type" content="website" />
+    <link rel="apple-touch-icon" href="https://nirium.xyz/branding-nirium/png/favicon-180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="https://nirium.xyz/branding-nirium/png/favicon-512.png" />
