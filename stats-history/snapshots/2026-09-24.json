@@ -29,7 +29,7 @@
         "checked": true,
         "count": 1,
         "freshness": {
-          "asOf": "2026-09-24T19:17:09.181Z",
+          "asOf": "2026-09-24T19:28:59.753Z",
           "error": null,
           "status": "live"
         },
@@ -343,54 +343,54 @@
   },
   "freshness": {
     "community": {
-      "asOf": "2026-09-24T19:17:06.561Z",
+      "asOf": "2026-09-24T19:28:59.696Z",
       "error": null,
       "status": "live"
     },
     "externalPRs": {
-      "asOf": "2026-09-24T19:17:06.298Z",
+      "asOf": "2026-09-24T19:28:59.535Z",
       "error": null,
       "status": "live"
     },
     "npm": {
       "nirium": {
-        "asOf": "2026-09-24T19:17:06.399Z",
+        "asOf": "2026-09-24T19:28:59.454Z",
         "error": null,
         "status": "live"
       },
       "nirium-cli": {
-        "asOf": "2026-09-24T19:17:06.399Z",
+        "asOf": "2026-09-24T19:28:59.572Z",
         "error": null,
         "status": "live"
       },
       "nirium-pollar-adapter": {
-        "asOf": "2026-09-24T19:17:06.399Z",
+        "asOf": "2026-09-24T19:28:59.597Z",
         "error": null,
         "status": "live"
       }
     },
     "pypi": {
-      "asOf": "2026-09-24T19:17:06.638Z",
+      "asOf": "2026-09-24T19:28:59.702Z",
       "error": null,
       "status": "live"
     },
     "rebalances": {
-      "asOf": "2026-09-24T19:17:06.562Z",
+      "asOf": "2026-09-24T19:28:59.700Z",
       "error": null,
       "status": "live"
     },
     "reporting": {
-      "asOf": "2026-09-24T19:17:10.146Z",
+      "asOf": "2026-09-24T19:29:02.638Z",
       "error": null,
       "status": "live"
     },
     "x402": {
-      "asOf": "2026-09-24T19:17:06.722Z",
+      "asOf": "2026-09-24T19:28:59.802Z",
       "error": null,
       "status": "live"
     }
   },
-  "generatedAt": "2026-09-24T19:17:11.111Z",
+  "generatedAt": "2026-09-24T19:29:04.306Z",
   "integrations": [
     {
       "badge": "Built by Nirium · reviewed and merged by Pollar",
@@ -569,7 +569,7 @@
             }
           ],
           "freshness": {
-            "asOf": "2026-09-24T19:17:06.722Z",
+            "asOf": "2026-09-24T19:28:59.802Z",
             "error": null,
             "status": "live"
           },
