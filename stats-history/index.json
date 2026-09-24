@@ -1,0 +1,14 @@
+{
+  "description": "One dated snapshot of https://nirium.xyz/api/stats per day. Each file is the raw response, byte-identical to what the sha256 in this index was computed from (json.dumps with sort_keys=True, 2-space indent). Compare a past entry against the file to detect any edit; both are public.",
+  "sourceUrl": "https://nirium.xyz/api/stats",
+  "snapshots": [
+    {
+      "date": "2026-09-24",
+      "capturedAt": "2026-09-24T19:17:11.111Z",
+      "sha256": "59ddec7df0095d56fe31f7bf6ace72223528d603ce3d139dd2e547d78783da7b",
+      "file": "stats-history/snapshots/2026-09-24.json",
+      "rawUrl": "https://raw.githubusercontent.com/nirium-protocol/status/master/stats-history/snapshots/2026-09-24.json",
+      "archiveOrgUrl": null
+    }
+  ]
+}

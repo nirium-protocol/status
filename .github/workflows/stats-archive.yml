@@ -1,0 +1,115 @@
+# Nirium's own addition, not part of Upptime's template - safe from
+# "Update Template CI" overwrites (it only touches upptime/uptime-monitor's
+# own generated files).
+#
+# Once a day: takes a dated snapshot of https://nirium.xyz/api/stats,
+# commits it (git history = a public, diffable record of what the page said
+# on any past date), and asks the Wayback Machine to archive the rendered
+# /stats page so the same numbers are independently preserved off our own
+# infrastructure too.
+name: Stats Archive
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.repository }}-stats-archive
+  cancel-in-progress: false
+jobs:
+  archive:
+    name: Snapshot + archive nirium.xyz/stats
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GH_PAT || github.token }}
+
+      - name: Fetch and record today's snapshot
+        id: snapshot
+        run: |
+          set -euo pipefail
+          date=$(date -u +%F)
+          out="stats-history/snapshots/${date}.json"
+          mkdir -p stats-history/snapshots
+
+          # Fail the job (no commit) rather than record a broken/empty read.
+          curl -sf -m 60 "https://nirium.xyz/api/stats" -o /tmp/raw.json
+
+          python3 - "$out" > /tmp/snapshot_meta.env <<'PY'
+          import json, hashlib, sys
+          out = sys.argv[1]
+          raw = open('/tmp/raw.json').read()
+          data = json.loads(raw)
+          pretty = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
+          open(out, 'w').write(pretty + '\n')
+          h = hashlib.sha256(pretty.encode()).hexdigest()
+          print(f"sha256={h}")
+          print(f"capturedAt={data.get('generatedAt', '')}")
+          PY
+          cat /tmp/snapshot_meta.env >> "$GITHUB_OUTPUT"
+          echo "date=$date" >> "$GITHUB_OUTPUT"
+
+      - name: Ask the Wayback Machine to archive the rendered page
+        id: wayback
+        continue-on-error: true
+        run: |
+          curl -s -m 60 -X POST "https://web.archive.org/save/" \
+            --data-urlencode "url=https://nirium.xyz/stats" -o /tmp/wb.html || true
+          sleep 20
+          curl -s -m 30 "https://archive.org/wayback/available?url=nirium.xyz/stats" -o /tmp/avail.json || echo '{}' > /tmp/avail.json
+          url=$(python3 -c "
+          import json
+          try:
+              d = json.load(open('/tmp/avail.json'))
+              print(d.get('archived_snapshots', {}).get('closest', {}).get('url', ''))
+          except Exception:
+              print('')
+          ")
+          echo "archiveUrl=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Update index.json
+        env:
+          SNAP_DATE: ${{ steps.snapshot.outputs.date }}
+          SNAP_CAPTURED_AT: ${{ steps.snapshot.outputs.capturedAt }}
+          SNAP_SHA256: ${{ steps.snapshot.outputs.sha256 }}
+          ARCHIVE_URL: ${{ steps.wayback.outputs.archiveUrl }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+
+          date = os.environ["SNAP_DATE"]
+          entry = {
+              "date": date,
+              "capturedAt": os.environ.get("SNAP_CAPTURED_AT", ""),
+              "sha256": os.environ.get("SNAP_SHA256", ""),
+              "file": f"stats-history/snapshots/{date}.json",
+              "rawUrl": f"https://raw.githubusercontent.com/nirium-protocol/status/master/stats-history/snapshots/{date}.json",
+              "archiveOrgUrl": os.environ.get("ARCHIVE_URL") or None,
+          }
+
+          path = "stats-history/index.json"
+          idx = json.load(open(path)) if os.path.exists(path) else {
+              "description": "One dated snapshot of https://nirium.xyz/api/stats per day. Each file is the raw response, byte-identical to what the sha256 in this index was computed from (json.dumps with sort_keys=True, 2-space indent). Compare a past entry against the file to detect any edit; both are public.",
+              "sourceUrl": "https://nirium.xyz/api/stats",
+              "snapshots": [],
+          }
+          idx["snapshots"] = [s for s in idx["snapshots"] if s["date"] != date] + [entry]
+          idx["snapshots"].sort(key=lambda s: s["date"])
+          json.dump(idx, open(path, "w"), indent=2, ensure_ascii=False)
+          open(path, "a").write("\n")
+          PY
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats-history/
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+            exit 0
+          fi
+          git commit -m "Stats archive: $(date -u +%F) snapshot [skip ci]"
+          git push
