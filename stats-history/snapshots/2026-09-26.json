@@ -1,0 +1,664 @@
+{
+  "auditTrailAnchors": {
+    "count": 0,
+    "latestCid": null,
+    "note": "Nirium's own live reporting API - not a third party, hit the link yourself to see the raw response.",
+    "source": "https://nirium-agent-mainnet.fly.dev/api/reporting/summary?network=mainnet",
+    "unlabeledCount": 3
+  },
+  "builtWithNirium": [
+    {
+      "checks": {
+        "endpoint": {
+          "checked": true,
+          "is402": true,
+          "status": 402
+        },
+        "packageJson": {
+          "checked": true,
+          "dependsOnNirium": true,
+          "version": "0.11.0"
+        }
+      },
+      "endpoint": "https://remesa-tia-backend.vercel.app/premium/fx",
+      "githubUser": "Edgadafi",
+      "kind": "x402-seller",
+      "packageJsonUrl": "https://github.com/Edgadafi/remesa-liquidez/blob/1e0cbd5902cb224d3c6a2320cc009cf4df84f513/backend/package.json",
+      "repoUrl": "https://github.com/Edgadafi/remesa-liquidez",
+      "settlements": {
+        "checked": true,
+        "count": 3,
+        "freshness": {
+          "asOf": "2026-09-26T11:29:15.608Z",
+          "error": null,
+          "status": "live"
+        },
+        "payTo": "GBRMBOEGDTF72FP72D7OQLICBXVTSG25GYWZ3W7TNCLD47NEYVU7JUBS",
+        "source": "https://horizon.stellar.org/accounts/GBRMBOEGDTF72FP72D7OQLICBXVTSG25GYWZ3W7TNCLD47NEYVU7JUBS/operations"
+      },
+      "sourceRefs": [
+        {
+          "label": "x402Serve() on /premium",
+          "url": "https://github.com/Edgadafi/remesa-liquidez/blob/1e0cbd5902cb224d3c6a2320cc009cf4df84f513/backend/src/app.ts#L147"
+        },
+        {
+          "label": "x402Serve() on /v1",
+          "url": "https://github.com/Edgadafi/remesa-liquidez/blob/1e0cbd5902cb224d3c6a2320cc009cf4df84f513/backend/src/app.ts#L154"
+        }
+      ]
+    },
+    {
+      "checks": {
+        "checked": true,
+        "mentionsNirium": true,
+        "ok": true,
+        "status": 200
+      },
+      "company": "AgentLedger",
+      "companyUrl": "https://agentpayments.fi/",
+      "connectorUrl": "https://agentpayments.fi/connectors/nirium/",
+      "kind": "connector",
+      "network": "testnet",
+      "statedScope": {
+        "noRealFunds": true,
+        "privateProofOfConcept": true
+      }
+    }
+  ],
+  "communityContributions": {
+    "available": true,
+    "bountyIssues": {
+      "total": 42
+    },
+    "campaigns": {
+      "count": 3,
+      "items": [
+        {
+          "bountyIssues": 4,
+          "name": "Official Campaign"
+        },
+        {
+          "bountyIssues": 12,
+          "name": "FWC26"
+        },
+        {
+          "bountyIssues": 30,
+          "name": "Third Campaign"
+        }
+      ]
+    },
+    "closedIssues": {
+      "count": 1,
+      "items": [
+        {
+          "author": "chenshj73",
+          "closedAt": "2026-08-29T23:10:48Z",
+          "grantfoxLabeled": true,
+          "number": 81,
+          "repo": "nirium-protocol/nirium",
+          "title": "Next.js x402 example grants access when any X-PAYMENT header is present",
+          "url": "https://github.com/nirium-protocol/nirium/issues/81"
+        }
+      ]
+    },
+    "failedRequests": 0,
+    "mergedPRs": {
+      "count": 15,
+      "items": [
+        {
+          "author": "angelraph",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-29T23:14:07Z",
+          "number": 82,
+          "repo": "nirium-protocol/nirium",
+          "title": "[Advanced] x402 pay-per-action gate for a Stellar Unity game (SUDK)",
+          "url": "https://github.com/nirium-protocol/nirium/pull/82"
+        },
+        {
+          "author": "angelraph",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-29T23:13:04Z",
+          "number": 83,
+          "repo": "nirium-protocol/nirium",
+          "title": "RouteDock discovery manifest for Nirium's x402 signals endpoint",
+          "url": "https://github.com/nirium-protocol/nirium/pull/83"
+        },
+        {
+          "author": "s6pa1rta3n-lab",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-29T23:10:47Z",
+          "number": 84,
+          "repo": "nirium-protocol/nirium",
+          "title": "fix(nextjs-x402): enforce real x402Serve payment verification and reject arbitrary headers (fixes #81)",
+          "url": "https://github.com/nirium-protocol/nirium/pull/84"
+        },
+        {
+          "author": "Simultech369",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-28T13:26:28Z",
+          "number": 80,
+          "repo": "nirium-protocol/nirium",
+          "title": "feat(action): add GitHub Action to verify audit CIDs (#51)",
+          "url": "https://github.com/nirium-protocol/nirium/pull/80"
+        },
+        {
+          "author": "Flames4fun",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-27T17:37:18Z",
+          "number": 79,
+          "repo": "nirium-protocol/nirium",
+          "title": "Feat/sdp audit bridge",
+          "url": "https://github.com/nirium-protocol/nirium/pull/79"
+        },
+        {
+          "author": "naninu123",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-26T17:24:42Z",
+          "number": 66,
+          "repo": "nirium-protocol/nirium",
+          "title": "feat(examples): add rust-x402 v2 client for Stellar testnet payments",
+          "url": "https://github.com/nirium-protocol/nirium/pull/66"
+        },
+        {
+          "author": "stiven-skyward",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-26T17:21:33Z",
+          "number": 73,
+          "repo": "nirium-protocol/nirium",
+          "title": "feat(examples): non-custodial treasury vault quickstart",
+          "url": "https://github.com/nirium-protocol/nirium/pull/73"
+        },
+        {
+          "author": "Santia2004",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-26T17:20:29Z",
+          "number": 69,
+          "repo": "nirium-protocol/nirium",
+          "title": "feat(examples): add audit trail forensic export bridge with independent verification (#65)",
+          "url": "https://github.com/nirium-protocol/nirium/pull/69"
+        },
+        {
+          "author": "stiven-skyward",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-25T22:24:25Z",
+          "number": 56,
+          "repo": "nirium-protocol/nirium",
+          "title": "feat(sdk-python): LangChain tool for autonomous x402 payments",
+          "url": "https://github.com/nirium-protocol/nirium/pull/56"
+        },
+        {
+          "author": "Shadow-MMN",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-25T22:24:21Z",
+          "number": 53,
+          "repo": "nirium-protocol/nirium",
+          "title": "feat(sdk): x402Metrics wrapper for Prometheus observability",
+          "url": "https://github.com/nirium-protocol/nirium/pull/53"
+        },
+        {
+          "author": "Johnpiii1",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-24T18:52:40Z",
+          "number": 55,
+          "repo": "nirium-protocol/nirium",
+          "title": "[Advanced] Minimal Go client for the x402 pay flow (Stellar)",
+          "url": "https://github.com/nirium-protocol/nirium/pull/55"
+        },
+        {
+          "author": "Simultech369",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-08-24T18:52:33Z",
+          "number": 47,
+          "repo": "nirium-protocol/nirium",
+          "title": "feat(python): harden WebSocket signals client with backoff, jitter, typed status/error events (#39)",
+          "url": "https://github.com/nirium-protocol/nirium/pull/47"
+        },
+        {
+          "author": "huazhuang80-star",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-07-24T23:13:20Z",
+          "number": 6,
+          "repo": "nirium-protocol/nirium",
+          "title": "docs: add Next.js x402 route example",
+          "url": "https://github.com/nirium-protocol/nirium/pull/6"
+        },
+        {
+          "author": "huazhuang80-star",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-07-24T23:13:17Z",
+          "number": 5,
+          "repo": "nirium-protocol/nirium",
+          "title": "docs: add x402 quickstart",
+          "url": "https://github.com/nirium-protocol/nirium/pull/5"
+        },
+        {
+          "author": "rohitmulani63-ops",
+          "linkedToGrantfoxIssue": true,
+          "mergedAt": "2026-07-24T23:13:14Z",
+          "number": 7,
+          "repo": "nirium-protocol/nirium",
+          "title": "docs: add Express x402 example",
+          "url": "https://github.com/nirium-protocol/nirium/pull/7"
+        }
+      ],
+      "linkedToGrantfoxIssue": 15
+    },
+    "note": "Team handles (Eras256, M0nsxx) and bots are excluded. The bounty issues themselves are written by the team, so \"issues closed\" counts only issues opened by people outside the team. Nothing here says whether any bounty was settled.",
+    "platformUrl": "https://grantfox.xyz/open-source",
+    "reposScanned": 3,
+    "source": "https://api.github.com/orgs/nirium-protocol/repos"
+  },
+  "escrowReleases": {
+    "allInternal": true,
+    "count": 1,
+    "feeUsdc": 0.0015,
+    "items": [
+      {
+        "at": "2026-09-03T20:57:31Z",
+        "contract": "CCP5447SKETV6CH3OFYKEPNCCKI7UBUFGNUP4SUFMKJREMME2L7SZKEH",
+        "feeUsdc": 0.0015,
+        "fn": "release_milestone_funds",
+        "hash": "0c533088ab6326a78b9f79c197b7636ca4662a0d72562968ddea37f370a8192b",
+        "internal": true,
+        "signer": "GDODE5YKUXHVLEZUVZAKAJTXNWW45WHJUHTWU7AEUIFIPHMGTUIWRU5O",
+        "toReceiverUsdc": 0.4985,
+        "totalUsdc": 0.5
+      }
+    ],
+    "note": "Trustless Work escrow milestone releases sent to the mainnet receiving address, read from Horizon (payer = a contract address). Not x402 payments.",
+    "source": "https://horizon.stellar.org/accounts/GCLBBPON256CV7ATEHM5B54BOKNC7GX53MBINJ42MHVXGDMMZ3ZWKBHP/operations",
+    "toReceiverUsdc": 0.4985,
+    "totalUsdc": 0.5
+  },
+  "externalMergedPRs": {
+    "count": 8,
+    "items": [
+      {
+        "mergedAt": "2026-09-21T01:05:26Z",
+        "mergedBy": "techrebelgit",
+        "number": 4,
+        "repo": "Trustless-Work/agentic-escrow-research",
+        "title": "Research note: production evidence for the agent-facing tool schema",
+        "url": "https://github.com/Trustless-Work/agentic-escrow-research/pull/4"
+      },
+      {
+        "mergedAt": "2026-09-21T00:53:15Z",
+        "mergedBy": "techrebelgit",
+        "number": 3,
+        "repo": "Trustless-Work/agentic-escrow-research",
+        "title": "Add use case: direct x402 payment without escrow (verified live settlement)",
+        "url": "https://github.com/Trustless-Work/agentic-escrow-research/pull/3"
+      },
+      {
+        "mergedAt": "2026-09-21T00:47:14Z",
+        "mergedBy": "techrebelgit",
+        "number": 2,
+        "repo": "Trustless-Work/agentic-escrow-research",
+        "title": "Add use case: authority by missing parameter (Treasury rebalancing)",
+        "url": "https://github.com/Trustless-Work/agentic-escrow-research/pull/2"
+      },
+      {
+        "mergedAt": "2026-09-21T00:38:29Z",
+        "mergedBy": "techrebelgit",
+        "number": 1,
+        "repo": "Trustless-Work/agentic-escrow-research",
+        "title": "Add use case: bounded-authority milestone payouts + x402",
+        "url": "https://github.com/Trustless-Work/agentic-escrow-research/pull/1"
+      },
+      {
+        "mergedAt": "2026-09-09T18:31:04Z",
+        "mergedBy": "jeesunikim",
+        "number": 69,
+        "repo": "stellar/stellar-mpp-sdk",
+        "title": "fix: correct the two invalid mainnet SAC constants (USDC_SAC_MAINNET, XLM_SAC_MAINNET)",
+        "url": "https://github.com/stellar/stellar-mpp-sdk/pull/69"
+      },
+      {
+        "mergedAt": "2026-09-05T16:29:00Z",
+        "mergedBy": "kaankacar",
+        "number": 97,
+        "repo": "stellar/stellar-dev-skill",
+        "title": "docs(agentic-payments): production patterns for x402 + MPP",
+        "url": "https://github.com/stellar/stellar-dev-skill/pull/97"
+      },
+      {
+        "mergedAt": "2026-08-31T23:10:07Z",
+        "mergedBy": "aleregex",
+        "number": 30,
+        "repo": "pollar-xyz/pollar-apps",
+        "title": "feat: Nirium x402 adapter demo (apps/nirium)",
+        "url": "https://github.com/pollar-xyz/pollar-apps/pull/30"
+      },
+      {
+        "mergedAt": "2026-08-15T02:41:08Z",
+        "mergedBy": "kaankacar",
+        "number": 96,
+        "repo": "stellar/stellar-dev-skill",
+        "title": "docs: add Nirium to community skills",
+        "url": "https://github.com/stellar/stellar-dev-skill/pull/96"
+      }
+    ],
+    "source": "https://api.github.com/repos/{owner}/{repo}/pulls/{number}",
+    "unavailable": 0
+  },
+  "freshness": {
+    "community": {
+      "asOf": "2026-09-26T11:29:12.866Z",
+      "error": null,
+      "status": "live"
+    },
+    "externalPRs": {
+      "asOf": "2026-09-26T11:29:12.692Z",
+      "error": null,
+      "status": "live"
+    },
+    "npm": {
+      "nirium": {
+        "asOf": "2026-09-26T11:29:12.556Z",
+        "error": null,
+        "status": "live"
+      },
+      "nirium-cli": {
+        "asOf": "2026-09-26T11:29:12.678Z",
+        "error": null,
+        "status": "live"
+      },
+      "nirium-pollar-adapter": {
+        "asOf": "2026-09-26T11:29:12.557Z",
+        "error": null,
+        "status": "live"
+      }
+    },
+    "pypi": {
+      "asOf": "2026-09-26T11:29:12.816Z",
+      "error": null,
+      "status": "live"
+    },
+    "rebalances": {
+      "asOf": "2026-09-26T11:29:12.801Z",
+      "error": null,
+      "status": "live"
+    },
+    "reporting": {
+      "asOf": "2026-09-26T11:29:15.855Z",
+      "error": null,
+      "status": "live"
+    },
+    "x402": {
+      "asOf": "2026-09-26T11:29:13.063Z",
+      "error": null,
+      "status": "live"
+    }
+  },
+  "generatedAt": "2026-09-26T11:29:17.594Z",
+  "integrations": [
+    {
+      "badge": "Built by Nirium · reviewed and merged by Pollar",
+      "checks": {
+        "items": [
+          {
+            "detail": "200",
+            "label": "demo URL responds 200",
+            "ok": true
+          },
+          {
+            "label": "page mentions Nirium and Pollar",
+            "ok": true
+          },
+          {
+            "detail": "testnet",
+            "label": "network read from the demo bundle’s configured key",
+            "ok": true
+          }
+        ],
+        "ok": true
+      },
+      "demoUrl": "https://nirium-pollar-x402-demo.vercel.app/",
+      "description": "x402 payment with Pollar login (Google/email, no wallet required)",
+      "links": [
+        {
+          "label": "pollar-xyz/pollar-apps#30",
+          "url": "https://github.com/pollar-xyz/pollar-apps/pull/30"
+        }
+      ],
+      "name": "Nirium × Pollar",
+      "network": "testnet"
+    },
+    {
+      "badge": "Built by Nirium · Stellar testnet",
+      "checks": {
+        "items": [
+          {
+            "detail": "200",
+            "label": "public URL responds 200",
+            "ok": true
+          },
+          {
+            "detail": "200",
+            "label": "game build is served",
+            "ok": true
+          },
+          {
+            "detail": "stellar:testnet · 0.02 USDC",
+            "label": "x402 gate answers 402 and advertises its network",
+            "ok": true
+          }
+        ],
+        "ok": true
+      },
+      "demoUrl": "https://nirium.xyz/nirium-play/",
+      "description": "A Unity game where each action goes through an x402 payment gate on Stellar.",
+      "links": [
+        {
+          "label": "gate health",
+          "url": "https://nirium-play-backend.fly.dev/health"
+        }
+      ],
+      "name": "Nirium Play",
+      "network": "testnet",
+      "origin": {
+        "links": [
+          {
+            "label": "issue #70",
+            "status": "closed · completed",
+            "url": "https://github.com/nirium-protocol/nirium/issues/70"
+          },
+          {
+            "label": "PR #82",
+            "status": "merged · @angelraph",
+            "url": "https://github.com/nirium-protocol/nirium/pull/82"
+          }
+        ],
+        "text": "The x402 gate for Unity came out of GrantFox campaign issue #70; the community PR that solved it was merged."
+      }
+    }
+  ],
+  "network": "mainnet",
+  "npm": {
+    "nirium": {
+      "downloads": 3931,
+      "npmUrl": "https://www.npmjs.com/package/nirium",
+      "package": "nirium",
+      "source": "https://api.npmjs.org/downloads/point/last-year/nirium"
+    },
+    "nirium-cli": {
+      "downloads": 1339,
+      "npmUrl": "https://www.npmjs.com/package/nirium-cli",
+      "package": "nirium-cli",
+      "source": "https://api.npmjs.org/downloads/point/last-year/nirium-cli"
+    },
+    "nirium-pollar-adapter": {
+      "downloads": 1065,
+      "npmUrl": "https://www.npmjs.com/package/nirium-pollar-adapter",
+      "package": "nirium-pollar-adapter",
+      "source": "https://api.npmjs.org/downloads/point/last-year/nirium-pollar-adapter"
+    }
+  },
+  "payoutsSettledRuns": {
+    "count": 0,
+    "source": "https://nirium-agent-mainnet.fly.dev/api/reporting/summary?network=mainnet"
+  },
+  "pypi": {
+    "days": 124,
+    "firstUpload": "2026-04-01",
+    "fullHistory": true,
+    "humanUrl": "https://pypistats.org/packages/nirium",
+    "since": "2026-04-01",
+    "source": "https://pypistats.org/api/packages/nirium/overall",
+    "total": 2221
+  },
+  "treasuryRebalances": {
+    "explorer": "https://stellar.expert/explorer/public/account/GCEAC7KKHLSPNHEO3N662N57ABRQZQ7QDVIZWQSQAUJZDMHU6ZEH7MNI",
+    "lastAt": "2026-08-06T02:29:05Z",
+    "source": "https://horizon.stellar.org/accounts/GCEAC7KKHLSPNHEO3N662N57ABRQZQ7QDVIZWQSQAUJZDMHU6ZEH7MNI/operations",
+    "total": 4
+  },
+  "x402Settlements": {
+    "distinctPayers": 3,
+    "escrowReleases": [
+      {
+        "at": "2026-09-03T20:57:31Z",
+        "contract": "CCP5447SKETV6CH3OFYKEPNCCKI7UBUFGNUP4SUFMKJREMME2L7SZKEH",
+        "feeUsdc": 0.0015,
+        "fn": "release_milestone_funds",
+        "hash": "0c533088ab6326a78b9f79c197b7636ca4662a0d72562968ddea37f370a8192b",
+        "internal": true,
+        "signer": "GDODE5YKUXHVLEZUVZAKAJTXNWW45WHJUHTWU7AEUIFIPHMGTUIWRU5O",
+        "toReceiverUsdc": 0.4985,
+        "totalUsdc": 0.5
+      }
+    ],
+    "explorer": "https://stellar.expert/explorer/public/account/GCLBBPON256CV7ATEHM5B54BOKNC7GX53MBINJ42MHVXGDMMZ3ZWKBHP",
+    "externalPayerCount": 0,
+    "externalSettlements": 0,
+    "firstAt": "2026-07-09T20:06:59Z",
+    "integrationTests": [
+      {
+        "address": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "count": 5,
+        "firstAt": "2026-08-05T07:29:36Z",
+        "funding": {
+          "funder": "GDCOXLT4TWKJEUQWBIU3D5RDSRE2A6XY76JUR4TZXXLHJITDKYKACTGS",
+          "funderIsNirium": true,
+          "ownSwapToUsdc": true,
+          "startingBalanceXlm": 33
+        },
+        "hashes": [
+          "f03a5d5b1da5c888b7d42936052241f75af8a217a55900136e8d4b4597ca4e99",
+          "9f102575897c5e277b6adee0ff7ab452373c79f6a951778b528b79db7ea40c31",
+          "392121757d269b4e4ca8ff6c4d509b5d3b0f6854ce66b4e4d268e1b0ec236fb7",
+          "dc1d4db9313b2cfc03269674dbd2d8dcbb1dc4903f98163dde6c9c817280c54a",
+          "1de356eeaaf334719d04e0b47ac5b62a3dc821785852fe5bbbae2957b5e3b522"
+        ],
+        "lastAt": "2026-09-12T06:43:06Z",
+        "ledger": {
+          "apiUrl": "https://agentpayments.fi/api/x402/ledger",
+          "chainVerified": true,
+          "entriesRead": 200,
+          "found": [
+            {
+              "amountUsdc": 0.05,
+              "at": "2026-09-12T06:43:12.784Z",
+              "httpStatus": 200,
+              "network": "stellar:pubnet",
+              "requestedByNirium": true,
+              "resource": "/api/v1/premium/market",
+              "seq": 359,
+              "txHash": "1de356eeaaf334719d04e0b47ac5b62a3dc821785852fe5bbbae2957b5e3b522",
+              "verdict": "SETTLED"
+            }
+          ],
+          "freshness": {
+            "asOf": "2026-09-26T11:29:13.063Z",
+            "error": null,
+            "status": "live"
+          },
+          "ok": true,
+          "pageUrl": "https://agentpayments.fi/ledger"
+        },
+        "shortName": "AgentLedger"
+      }
+    ],
+    "lastAt": "2026-09-12T06:43:06Z",
+    "payers": [
+      {
+        "address": "GAQPWCSBHQNBHR6XXAO2F3MNZIKWPDHCKNU5IEQ6PX6YEIUNNGWE252E",
+        "count": 20,
+        "evidenceUrl": null,
+        "firstAt": "2026-07-09T20:06:59Z",
+        "funding": null,
+        "hashes": [
+          "8a2487b8545e02324ced5d902fa350f0f5d8c2d5d2210272506a320b36d73170",
+          "242af7cc3206d2a6aae9273904faab95905ec747a06647ab66c886aeda2ee0fe",
+          "312817a819064030438a3cd4a7604f412a135a0bf87821438d43a507a9483336",
+          "cc020867162090b5d03830cae40726c374c5dbe29fb154eb1daf744cf2552d7c",
+          "3134a51c66091fd7fbd85b38a4a6ec6cd432bb92c2450eac84ea7855cb7558bc",
+          "5f848aed6bec9ca134c049816771612befd7783357bbfa9faad17fb7133dfbff",
+          "274176103045e373f8282e31e5c531a5f78e98d8139ecf7a8b2be6d43268d55d",
+          "7915152e86a486afa174570404a9b292c7964952f8c38485710619da13cd5abc",
+          "25ebaf9aa7e72c1c3edcc43a1c18aaa102c12eee42c57e02fed4fda79af6605d",
+          "4813645165d15af1e503d66ef84d826e83fff235d4f98c3f6eba8a4e7c83795e",
+          "18566aea6f38d807e1303babddbd54e05e971b9cc417e609b52791bfd85b2387",
+          "0b99a29d9edd1e03461fdbbe9272041515a9c9e39fc72121de880d48925bc05f",
+          "bd9526efdc794bce67bd0d1983457b3cde79d6894621ff36cd652b03f5505b58",
+          "72c65093c3ef73fd498d5b859e7e8c312fafb84fc32d430254e8e5fa69755e51",
+          "555176c4ac85d6ee79b36dc0a1226e44e4c882ab30d14ddf20a15c431154fc42",
+          "e09c45f24d6726343c61e9e33a01c0d271449d73d9396756960ab831822cc712",
+          "b814b1af46d8a782f73387f20551ad7dd638ecf6e00d6e363cfcc4c17fd39b56",
+          "c00eea82da9bd1f5b57ac7431a89b1b6125212765fdf6323eed263c7ba12ee87",
+          "42f38adcde4a632d4de5c322d6eea02ae70169fc58cf1be145ab1f0bf7d4d738",
+          "bf9a1ca6b9b157c7010f0774107e4140f8a7b0e3c6c0227908936447de9aac24"
+        ],
+        "kind": "internal",
+        "label": "Nirium test wallet",
+        "lastAt": "2026-09-11T18:25:15Z",
+        "note": "Public key independently re-derived from the private key we hold.",
+        "shortName": "Nirium",
+        "totalUsdc": 0.43
+      },
+      {
+        "address": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "count": 5,
+        "evidenceUrl": "https://github.com/OpenZeppelin/relayer-plugin-x402-facilitator/issues/47#issuecomment-5644298533",
+        "firstAt": "2026-08-05T07:29:36Z",
+        "funding": {
+          "funder": "GDCOXLT4TWKJEUQWBIU3D5RDSRE2A6XY76JUR4TZXXLHJITDKYKACTGS",
+          "funderIsNirium": true,
+          "ownSwapToUsdc": true,
+          "startingBalanceXlm": 33
+        },
+        "hashes": [
+          "f03a5d5b1da5c888b7d42936052241f75af8a217a55900136e8d4b4597ca4e99",
+          "9f102575897c5e277b6adee0ff7ab452373c79f6a951778b528b79db7ea40c31",
+          "392121757d269b4e4ca8ff6c4d509b5d3b0f6854ce66b4e4d268e1b0ec236fb7",
+          "dc1d4db9313b2cfc03269674dbd2d8dcbb1dc4903f98163dde6c9c817280c54a",
+          "1de356eeaaf334719d04e0b47ac5b62a3dc821785852fe5bbbae2957b5e3b522"
+        ],
+        "kind": "integration-test",
+        "label": "AgentLedger (@fernando-mendoza)",
+        "lastAt": "2026-09-12T06:43:06Z",
+        "note": "Integration tests by a third party (AgentLedger) - the operator identified these settlements as theirs, in public, on OpenZeppelin/relayer-plugin-x402-facilitator#47. Wallet initially funded by Nirium's founder.",
+        "shortName": "AgentLedger",
+        "totalUsdc": null
+      },
+      {
+        "address": "GCHKVQU5X7UCNO2Q5DM37I2EXAKRVANXY2Z2CJIY53T4XPDEXM6ZOFM3",
+        "count": 1,
+        "evidenceUrl": null,
+        "firstAt": "2026-08-05T21:56:45Z",
+        "funding": null,
+        "hashes": [
+          "e4fa3df9cb225a4d7f64dd0082eb38218ada4b4af3378f288989a5d4b1116ed9"
+        ],
+        "kind": "internal",
+        "label": "Nirium test of the Pollar login flow",
+        "lastAt": "2026-08-05T21:56:45Z",
+        "note": "Wallet created through our Pollar app; its reserve sponsor was funded from a wallet we control.",
+        "shortName": "Nirium",
+        "totalUsdc": 0.02
+      }
+    ],
+    "source": "https://horizon.stellar.org/accounts/GCLBBPON256CV7ATEHM5B54BOKNC7GX53MBINJ42MHVXGDMMZ3ZWKBHP/operations",
+    "totalSettlements": 26
+  }
+}
