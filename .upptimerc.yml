@@ -19,12 +19,14 @@ sites:
     url: https://nirium-agent-mainnet.fly.dev/api/treasury/info
   - name: "[Mainnet] Payouts (invite-only)"
     url: https://nirium-agent-mainnet.fly.dev/api/payroll/info
-  - name: "[Mainnet] Market ($0.05, x402/MPP)"
+  - name: "[Mainnet] Market ($0.05, x402)"
+    slug: mainnet-market-0-05-x402-mpp
     url: https://nirium-agent-mainnet.fly.dev/api/v1/premium/market
     expectedStatusCodes:
       - 200
       - 402
-  - name: "[Mainnet] MPP"
+  - name: "[Mainnet] MPP (experimental, info endpoint)"
+    slug: mainnet-mpp
     url: https://nirium-agent-mainnet.fly.dev/api/v1/mpp/info
 
   # --- Testnet (Box A — nirium-agent.fly.dev, full feature set) ---
@@ -40,12 +42,14 @@ sites:
     url: https://nirium-agent.fly.dev/api/payroll/info
   - name: "[Testnet] Escrow (Trustless Work)"
     url: https://nirium-agent.fly.dev/api/payroll/escrow/info
-  - name: "[Testnet] Market ($0.05, x402/MPP)"
+  - name: "[Testnet] Market ($0.05, x402)"
+    slug: testnet-market-0-05-x402-mpp
     url: https://nirium-agent.fly.dev/api/v1/premium/market
     expectedStatusCodes:
       - 200
       - 402
-  - name: "[Testnet] MPP"
+  - name: "[Testnet] MPP (experimental, info endpoint)"
+    slug: testnet-mpp
     url: https://nirium-agent.fly.dev/api/v1/mpp/info
 
 status-website:
