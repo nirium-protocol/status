@@ -35,8 +35,33 @@ jobs:
           out="stats-history/snapshots/${date}.json"
           mkdir -p stats-history/snapshots
 
-          # Fail the job (no commit) rather than record a broken/empty read.
-          curl -sf -m 60 "https://nirium.xyz/api/stats" -o /tmp/raw.json
+          # /api/stats and /stats are regenerated at most every 5 minutes, and
+          # the first request after a quiet period gets the PREVIOUS version
+          # while a new one is built. Measured: the 2026-11-08 snapshot carried
+          # data generated 11 h earlier. So: wake both up, then read /api/stats
+          # until its generatedAt is under 10 minutes old. If it never is, fail
+          # the job (no commit) rather than record yesterday's numbers under
+          # today's date.
+          curl -s -m 60 -o /dev/null "https://nirium.xyz/stats" || true
+          fresh=0
+          for attempt in 1 2 3 4 5; do
+            # Fail the job (no commit) rather than record a broken/empty read.
+            curl -sf -m 60 "https://nirium.xyz/api/stats" -o /tmp/raw.json
+            age=$(python3 - <<'PY'
+          import json, datetime
+          g = json.load(open('/tmp/raw.json'))['generatedAt']
+          t = datetime.datetime.fromisoformat(g.replace('Z', '+00:00'))
+          print(int((datetime.datetime.now(datetime.timezone.utc) - t).total_seconds()))
+          PY
+          )
+            echo "attempt ${attempt}: data generated ${age}s ago"
+            if [ "$age" -le 600 ]; then fresh=1; break; fi
+            sleep 60
+          done
+          if [ "$fresh" -ne 1 ]; then
+            echo "::error::/api/stats kept serving data older than 10 minutes; no snapshot recorded today."
+            exit 1
+          fi
 
           python3 - "$out" > /tmp/snapshot_meta.env <<'PY'
           import json, hashlib, sys
