@@ -393,6 +393,14 @@
       "file": "stats-history/snapshots/2026-11-11.json",
       "rawUrl": "https://raw.githubusercontent.com/nirium-protocol/status/master/stats-history/snapshots/2026-11-11.json",
       "archiveOrgUrl": "http://web.archive.org/web/20261111142900/https://nirium.xyz/stats"
+    },
+    {
+      "date": "2026-11-12",
+      "capturedAt": "2026-11-12T15:20:34.842Z",
+      "sha256": "5650a8d1f7e17859407afaeb45cf3180b95e710e897dcd0ff4386c27e988dc7d",
+      "file": "stats-history/snapshots/2026-11-12.json",
+      "rawUrl": "https://raw.githubusercontent.com/nirium-protocol/status/master/stats-history/snapshots/2026-11-12.json",
+      "archiveOrgUrl": "http://web.archive.org/web/20261112152129/https://nirium.xyz/stats"
     }
   ]
 }
