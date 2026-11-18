@@ -59,11 +59,11 @@ status-website:
   favicon: https://nirium.xyz/branding-nirium/png/favicon-32.png
   faviconSvg: https://nirium.xyz/branding-nirium/svg/favicon.svg
   name: Nirium Status
-  introTitle: "**Nirium** — real-time status of the public API, split by network."
+  introTitle: "**Nirium**: real-time status of the public API, split by network."
   introMessage: >-
     Checks run every 5 minutes directly against the live endpoints of
     nirium-agent.fly.dev (testnet) and nirium-agent-mainnet.fly.dev (mainnet).
-    A $0.05 paid endpoint returning 402 Payment Required counts as healthy —
+    A $0.05 paid endpoint returning 402 Payment Required counts as healthy:
     that is its correct response when no valid payment was sent. Items marked
     invite-only are access-gated by design (see nirium.xyz/compliance), not
     a testnet-vs-mainnet feature gap.
