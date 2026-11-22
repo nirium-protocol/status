@@ -61,7 +61,8 @@ status-website:
   name: Nirium Status
   introTitle: "**Nirium**: real-time status of the public API, split by network."
   introMessage: >-
-    Checks run every 5 minutes directly against the live endpoints of
+    Checks are scheduled every 5 minutes; GitHub runs scheduled jobs late,
+    sometimes hours apart. They go directly against the live endpoints of
     nirium-agent.fly.dev (testnet) and nirium-agent-mainnet.fly.dev (mainnet).
     A $0.05 paid endpoint returning 402 Payment Required counts as healthy:
     that is its correct response when no valid payment was sent. Items marked

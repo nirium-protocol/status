@@ -11,6 +11,8 @@ name: Stats Archive
 on:
   schedule:
     - cron: "17 6 * * *"
+    # Second try the same day, only if the morning run recorded nothing.
+    - cron: "17 18 * * *"
   workflow_dispatch:
 concurrency:
   group: ${{ github.repository }}-stats-archive
@@ -34,17 +36,29 @@ jobs:
           date=$(date -u +%F)
           out="stats-history/snapshots/${date}.json"
           mkdir -p stats-history/snapshots
+          echo "date=$date" >> "$GITHUB_OUTPUT"
+          if [ -f "$out" ]; then
+            echo "Today's snapshot already exists; nothing to do."
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
-          # /api/stats and /stats are regenerated at most every 5 minutes, and
+          # /api/stats is cached up to 30 minutes (revalidate = 1800, s-maxage=1800,
+          # stale-while-revalidate=3600 in apps/web/app/api/stats/route.ts), and
           # the first request after a quiet period gets the PREVIOUS version
           # while a new one is built. Measured: the 2026-11-08 snapshot carried
-          # data generated 11 h earlier. So: wake both up, then read /api/stats
-          # until its generatedAt is under 10 minutes old. If it never is, fail
-          # the job (no commit) rather than record yesterday's numbers under
-          # today's date.
+          # data generated 11 h earlier. On 2026-11-20 the old 10-minute limit
+          # failed all 5 attempts on data 21-25 minutes old, which is inside the
+          # route's own 30-minute window, so that day has no snapshot.
+          # A query string does not bypass it (checked 2026-11-21: ?snapshot=...
+          # returned the same STALE copy). So: wake both up, then read /api/stats
+          # until its generatedAt is under 35 minutes old, and record that real
+          # generatedAt. If it never is, fail (no commit) rather than record
+          # yesterday's numbers under today's date; the evening run tries again.
+          # A missed day is never filled in afterwards.
           curl -s -m 60 -o /dev/null "https://nirium.xyz/stats" || true
           fresh=0
-          for attempt in 1 2 3 4 5; do
+          for attempt in 1 2 3 4 5 6 7 8; do
             # Fail the job (no commit) rather than record a broken/empty read.
             curl -sf -m 60 "https://nirium.xyz/api/stats" -o /tmp/raw.json
             age=$(python3 - <<'PY'
@@ -55,11 +69,11 @@ jobs:
           PY
           )
             echo "attempt ${attempt}: data generated ${age}s ago"
-            if [ "$age" -le 600 ]; then fresh=1; break; fi
+            if [ "$age" -le 2100 ]; then fresh=1; break; fi
             sleep 60
           done
           if [ "$fresh" -ne 1 ]; then
-            echo "::error::/api/stats kept serving data older than 10 minutes; no snapshot recorded today."
+            echo "::error::/api/stats kept serving data older than 35 minutes; no snapshot recorded this run."
             exit 1
           fi
 
@@ -75,10 +89,10 @@ jobs:
           print(f"capturedAt={data.get('generatedAt', '')}")
           PY
           cat /tmp/snapshot_meta.env >> "$GITHUB_OUTPUT"
-          echo "date=$date" >> "$GITHUB_OUTPUT"
 
       - name: Ask the Wayback Machine to archive the rendered page
         id: wayback
+        if: steps.snapshot.outputs.skip != '1'
         continue-on-error: true
         run: |
           curl -s -m 60 -X POST "https://web.archive.org/save/" \
@@ -96,6 +110,7 @@ jobs:
           echo "archiveUrl=$url" >> "$GITHUB_OUTPUT"
 
       - name: Update index.json
+        if: steps.snapshot.outputs.skip != '1'
         env:
           SNAP_DATE: ${{ steps.snapshot.outputs.date }}
           SNAP_CAPTURED_AT: ${{ steps.snapshot.outputs.capturedAt }}
@@ -128,6 +143,7 @@ jobs:
           PY
 
       - name: Commit and push
+        if: steps.snapshot.outputs.skip != '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
