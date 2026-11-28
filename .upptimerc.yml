@@ -52,6 +52,29 @@ sites:
     slug: testnet-mpp
     url: https://nirium-agent.fly.dev/api/v1/mpp/info
 
+  # --- Solana and Avalanche (since 27 Nov 2026) ---
+  # The markets sell each chain's network data for $0.01 USDC; 402 is their healthy answer with no payment.
+  # They stop when idle and take about 12 s to wake, inside Upptime's defaults (60 s timeout, degraded over 60 s).
+  # The paid route is checked, not only /health: on 27 Nov /health answered while the paid route failed.
+  - name: "[Solana mainnet] Market ($0.01, x402)"
+    slug: solana-mainnet-market
+    url: https://nirium-market-solana.fly.dev/v1/market
+    expectedStatusCodes:
+      - 200
+      - 402
+  - name: "[Avalanche mainnet] Market ($0.01, x402)"
+    slug: avalanche-mainnet-market
+    url: https://nirium-market-avalanche.fly.dev/v1/market
+    expectedStatusCodes:
+      - 200
+      - 402
+  - name: "[Solana] Receipt explorer"
+    slug: solana-explorer
+    url: https://nirium.xyz/solana/explorer
+  - name: "[Avalanche] Receipt explorer"
+    slug: avalanche-explorer
+    url: https://nirium.xyz/avalanche/explorer
+
 status-website:
   baseUrl: /status
   themeUrl: https://cdn.jsdelivr.net/gh/nirium-protocol/status@master/themes/nirium.css
@@ -63,9 +86,11 @@ status-website:
   introMessage: >-
     Checks are scheduled every 5 minutes; GitHub runs scheduled jobs late,
     sometimes hours apart. They go directly against the live endpoints of
-    nirium-agent.fly.dev (testnet) and nirium-agent-mainnet.fly.dev (mainnet).
-    A $0.05 paid endpoint returning 402 Payment Required counts as healthy:
-    that is its correct response when no valid payment was sent. Items marked
+    nirium-agent.fly.dev (testnet) and nirium-agent-mainnet.fly.dev (mainnet),
+    and of the Solana and Avalanche x402 markets and receipt explorers. A paid
+    endpoint ($0.05 on Stellar, $0.01 on Solana and Avalanche) returning 402
+    Payment Required counts as healthy: that is its correct response when no
+    valid payment was sent. Items marked
     invite-only are access-gated by design (see nirium.xyz/compliance), not
     a testnet-vs-mainnet feature gap.
   navbar:
